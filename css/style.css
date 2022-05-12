@@ -1,0 +1,161 @@
+body {
+  font-family: arial, serif;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  color: white;
+  font-size: 100px;
+}
+
+h2 {
+  color: white;
+  font-size: 45px;
+}
+
+h3 {
+  color: black;
+  font-size: 35px;
+}
+
+p {
+  color: black;
+  font-size: 15px;
+}
+
+.how-it-works {
+  color: black;
+  font-size: 25px;
+}
+
+form {
+  max-width: 620px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+input[type="text"],
+textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border-style: hidden;
+}
+
+.label {
+  display: block;
+}
+
+.submit-form,
+.view-form,
+.update-form,
+.delete-form {
+  max-width: 400px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.banner {
+  background-image: url("https://data4.origin.com/asset/content/dam/originx/web/app/games/apex/apex/F2P/merch/Season1_battlepass_premier_GDP_v1.jpg/6ae40eca-df52-4916-8429-25ff7244419c/original.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-shadow: 0 10px #000000;
+  padding: 10px;
+}
+
+.main-back-ground {
+  background-color: #e5e1d8;
+  padding: 10px;
+}
+
+/* button slide styling */
+.reset-btn::before,
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background-color: var(--accent-color);
+
+  transition: transform 300ms ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.reset-btn:hover::before,
+.submit-btn:hover::before,
+.reset-btn:focus::before,
+.submit-btn:focus::before {
+  transform: scaleX(1);
+}
+
+.reset-btn,
+.submit-btn {
+  background-color: var(--background-color);
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 5px;
+
+  --background-color: black;
+
+  --accent-color: #0af;
+
+  z-index: 1;
+}
+
+.footer-basic {
+  padding: 10px 0;
+  background-color: black;
+}
+
+.footer-basic .copyright {
+  text-align: center;
+  font-size: 15px;
+  color: white;
+}
+
+/* Form responses */
+.form-message {
+  padding: 1rem;
+  border: 1px solid #4b4c4d;
+  border-radius: 3px;
+}
+
+.form-message--success {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 650px;
+  border: 3px solid #2ecc40;
+}
+
+.form-message--error {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 650px;
+  border: 3px solid #ff4136;
+}
+
+.games-list-section {
+  padding: 2rem;
+}
+
+.games-list-title {
+  color: #111;
+  margin: 0;
+}
+
+.games-list {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 650px;
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rate A Game</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="js/main.js" async></script>
+</head>
+
+<body>
+
+  <div class="banner">
+    <h1>Rate A Game</h1>
+    <h2>Rate your favourite games</h2>
+  </div>
+
+  <div class="main-back-ground">
+    <h3>How It Works</h3>
+    <p class="how-it-works">Rate A Game is a fan website which collects ratings on popular games. <br>Submit a rating
+      below by entering
+      the game name, author, game rating and comments.<br></p>
+
+    <!-- form for adding a rating -->
+    <form action="/add" method="POST" id="form-add">
+      <fieldset>
+        <h3>Submit A Rating</h3>
+        <div class="submit-form">
+
+          <div class="form-field">
+            <label class="label" for="gameName">Game Name:</label>
+            <input type="text" id="gameName" name="name" placeholder="Video game name..." required>
+          </div>
+          <br>
+
+          <div class="form-field">
+            <label class="label" for="authorAdd">Author:</label>
+            <input type="text" id="authorAdd" name="author" placeholder="Reviewers name..." required>
+          </div>
+          <br>
+
+          <!-- radio buttons created for ratings -->
+          <div class="form-field">
+            <label>Game Rating:</label>
+            <div class="radio-wrapper">
+              <input type="radio" id="rating1" name="rating" value="1" checked>
+              <label for="rating1">1 - Terrible</label>
+            </div>
+            <div class="radio-wrapper">
+              <input type="radio" id="rating2" name="rating" value="2">
+              <label for="rating2">2 - Less than average</label>
+            </div>
+            <div class="radio-wrapper">
+              <input type="radio" id="rating3" name="rating" value="3">
+              <label for="rating3">3 - Okay</label>
+            </div>
+            <div class="radio-wrapper">
+              <input type="radio" id="rating4" name="rating" value="4">
+              <label for="rating4">4 - Above average</label>
+            </div>
+            <div class="radio-wrapper">
+              <input type="radio" id="rating5" name="rating" value="5">
+              <label for="rating5">5 - Amazing</label>
+            </div>
+          </div>
+          <br>
+
+          <!-- text area created for comments including character count -->
+          <div class="form-field">
+            <label class="label" for="commentsAdd">Comments:</label>
+            <div class="text-area">
+              <textarea id="commentsAdd" data-counter-el-id="commentsCounterValueAdd" name="comments" rows="5" cols="33"
+                maxlength="100" minlength="3" placeholder="Please type your review here..." required></textarea>
+              <p class="comments-counter"><span id="commentsCounterValueAdd" class="comments-counter-value">0</span>/100
+                (Maximum Characters 100)</p>
+            </div>
+          </div>
+          <button class="reset-btn" type="reset">Reset</button>
+          <button class="submit-btn" type="submit">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <!-- form for viewing a rating -->
+    <form action="/view" method="POST" id="form-view">
+      <fieldset>
+        <h3>View A Rating</h3>
+        <div class="view-form">
+
+          <div class="form-field">
+            <label class="label">Game Name:</label>
+            <input type="text" id="nameView" name="name" placeholder="Video game name..." required>
+          </div>
+          <br>
+          <button class="reset-btn" type="reset">Reset</button>
+          <button class="submit-btn" type="submit">View</button>
+          <br>
+        </div>
+      </fieldset>
+    </form>
+
+    <!-- form for updating a rating -->
+    <form action="/update" method="POST" id="form-update">
+      <fieldset>
+        <h3>Update A Rating</h3>
+        <div class="update-form">
+
+          <div class="form-field">
+            <label class="label">Game ID:</label>
+            <input type="text" id='gameID' name="id" placeholder="Video game ID..." required>
+          </div>
+          <br>
+
+          <div class="form-field">
+            <label class="label">Game Name:</label>
+            <input type="text" id="name" name="name" placeholder="Video game name..." required>
+          </div>
+          <br>
+
+          <div class="form-field">
+            <label class="label" for="authorAdd">Author:</label>
+            <input type="text" id="authorUpdate" name="author" placeholder="Reviewers name..." required>
+          </div>
+          <br>
+
+          <!-- radio buttons created for ratings -->
+          <div class="form-field">
+            <label class="label">Update Rating:</label>
+            <div class="radio-wrapper">
+              <input type="radio" id="updateRating1" name="rating" value="1" checked>
+              <label for="updateRating1">1 - Terrible</label>
+            </div>
+            <div class="radio-wrapper">
+              <input type="radio" id="updateRating2" name="rating" value="2">
+              <label for="updateRating2">2 - Less than average</label>
+            </div>
+            <div class="radio-wrapper">
+              <input type="radio" id="updateRating3" name="rating" value="3">
+              <label for="updateRating3">3 - Okay</label>
+            </div>
+            <div class="radio-wrapper">
+              <input type="radio" id="updateRating4" name="rating" value="4">
+              <label for="updateRating4">4 - Above average</label>
+            </div>
+            <div class="radio-wrapper">
+              <input type="radio" id="updateRating5" name="rating" value="5">
+              <label for="updateRating5">5 - Amazing</label>
+            </div>
+          </div>
+          <br>
+
+          <!-- text area created for comments including character count -->
+          <div class="form-field">
+            <label class="label" for="commentsUpdate">Update Comments:</label>
+            <div class="text-area">
+              <textarea id="commentsUpdate" data-counter-el-id="commentsCounterValueUpdate" name="comments" rows="5"
+                cols="33" maxlength="100" minlength="3" placeholder="Please type your review here..."
+                required></textarea>
+              <p class="comments-counter"><span id="commentsCounterValueUpdate"
+                  class="comments-counter-value">0</span>/100 (Maximum Characters 100)</p>
+            </div>
+          </div>
+          <button class="reset-btn" type="reset">Reset</button>
+          <button class="submit-btn" type="submit">Update</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <!-- form for deleting a rating -->
+    <form action="/delete" method="POST" id="form-delete">
+      <fieldset>
+        <h3>Delete A Rating</h3>
+        <div class="delete-form">
+
+          <div class="form-field">
+            <label class="label">Game ID:</label>
+            <input type="text" id='gameIDelete' name="id" placeholder="Video game ID..." required>
+          </div>
+          <br>
+
+          <button class="reset-btn" type="reset">Reset</button>
+          <button class="submit-btn" type="submit">Delete</button>
+          <br>
+        </div>
+      </fieldset>
+    </form>
+
+    <!-- section for the get all games function -->
+    <section class="games-list-section">
+      <h2 class="games-list-title">All games</h2>
+      <ul class="games-list"></ul>
+    </section>
+  </div>
+
+  <div class="footer-basic">
+    <footer>
+      <p class="copyright">Made by Omar Sharaan © 2021</p>
+    </footer>
+  </div>
+
+</body>
+
+</html>
